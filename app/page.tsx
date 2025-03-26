@@ -33,7 +33,7 @@ export default function JwtDebuggerPage() {
         // Check for theme preference only once on initial load
         if (typeof window !== 'undefined') {
             const savedTheme = localStorage.getItem('theme');
-            if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            if (savedTheme === 'dark') {
                 setTheme('dark');
                 document.documentElement.classList.add('dark');
             } else {
@@ -219,13 +219,24 @@ export default function JwtDebuggerPage() {
     return (
         <div className="jwt-page">
             <header className="jwt-header">
-                <h1 className="jwt-title">JWT Debugger</h1>
+                <div className="jwt-branding">
+                    <h1 
+                        className="jwt-brand-title" 
+                        onClick={() => window.location.reload()}
+                        style={{ cursor: 'pointer' }}
+                        onMouseOver={(e) => e.currentTarget.style.opacity = '0.8'}
+                        onMouseOut={(e) => e.currentTarget.style.opacity = '1'}
+                    >Token Trace</h1>
+                    <p className="jwt-brand-description">Decode and Verify JWT tokens with ease</p>
+                </div>
                 <button
                     onClick={toggleTheme}
                     className="theme-toggle"
                     aria-label="Toggle theme"
+                    title={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
                 >
-                    {theme === 'light' ? <MoonIcon className="w-5 h-5" /> : <SunIcon className="w-5 h-5" />}
+                    <MoonIcon className={`w-5 h-5 theme-icon ${theme === 'light' ? 'visible' : 'hidden'}`} />
+                    <SunIcon className={`w-5 h-5 theme-icon ${theme === 'dark' ? 'visible' : 'hidden'}`} />
                 </button>
             </header>
 
@@ -300,7 +311,7 @@ export default function JwtDebuggerPage() {
                     {/* Header Section */}
                     <div className="jwt-card">
                         <div className="jwt-decoded-header">
-                            <div className="jwt-decoded-header-label jwt-header-text">Header:</div>
+                            <div className="jwt-decoded-header-label jwt-header-text">HEADER:</div>
                             <div className="jwt-decoded-header-value">ALGORITHM & TOKEN TYPE</div>
                         </div>
                         <div className="jwt-card-content">
@@ -311,7 +322,7 @@ export default function JwtDebuggerPage() {
                     {/* Payload Section */}
                     <div className="jwt-card">
                         <div className="jwt-decoded-header">
-                            <div className="jwt-decoded-header-label jwt-payload-text">Payload:</div>
+                            <div className="jwt-decoded-header-label jwt-payload-text">PAYLOAD:</div>
                             <div className="jwt-decoded-header-value">DATA</div>
                         </div>
                         <div className="jwt-card-content jwt-card-payload">
@@ -322,7 +333,7 @@ export default function JwtDebuggerPage() {
                     {/* Signature Section */}
                     <div className="jwt-card">
                         <div className="jwt-decoded-header">
-                            <div className="jwt-decoded-header-label jwt-signature-text">Verify Signature</div>
+                            <div className="jwt-decoded-header-label jwt-signature-text">VERIFY SIGNATURE</div>
                             <div className="jwt-decoded-header-value">
                                 {decodedHeader && typeof decodedHeader === 'object' && 
                                     (decodedHeader as any).alg ? 
