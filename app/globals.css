@@ -601,8 +601,50 @@ body {
   color: theme('colors.gray.600');
 }
 
+.jwt-verify-checkbox input[type="checkbox"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #fff;
+  margin: 0;
+  width: 14px;
+  height: 14px;
+  border: 1px solid theme('colors.gray.300');
+  border-radius: 50%;
+  display: grid;
+  place-content: center;
+  cursor: pointer;
+}
+
+.jwt-verify-checkbox input[type="checkbox"]:checked {
+  background-color: theme('colors.indigo.500');
+  border-color: theme('colors.indigo.500');
+}
+
+.jwt-verify-checkbox input[type="checkbox"]:checked::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: white;
+  transform: scale(1);
+}
+
 .dark .jwt-verify-checkbox {
   color: theme('colors.slate.400');
+}
+
+.dark .jwt-verify-checkbox input[type="checkbox"] {
+  background-color: theme('colors.slate.800');
+  border-color: theme('colors.slate.600');
+}
+
+.dark .jwt-verify-checkbox input[type="checkbox"]:checked {
+  background-color: theme('colors.indigo.500');
+  border-color: theme('colors.indigo.500');
+}
+
+.dark .jwt-verify-checkbox input[type="checkbox"]:checked::before {
+  background-color: white;
 }
 
 .jwt-card-footer {

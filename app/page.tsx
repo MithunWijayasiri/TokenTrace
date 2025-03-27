@@ -33,6 +33,10 @@ export default function JwtDebuggerPage() {
         setEncodedToken(SAMPLE_JWT);
     };
 
+    const clearToken = () => {
+        setEncodedToken('');
+    };
+
     useEffect(() => {
         // Check for theme preference only once on initial load
         if (typeof window !== 'undefined') {
@@ -234,7 +238,7 @@ export default function JwtDebuggerPage() {
                         <FingerPrintIcon className="w-7 h-7 inline-block mr-2" />
                         Token Trace
                     </h1>
-                    <p className="jwt-brand-description">Decode and Verify JWT tokens with ease</p>
+                    <p className="jwt-brand-description">Decode and Verify JWT with ease</p>
                 </div>
                 <button
                     onClick={toggleTheme}
@@ -262,13 +266,22 @@ export default function JwtDebuggerPage() {
                     </label>
                     <div className="jwt-small-text-container">
                         <div className="jwt-small-text">PASTE A TOKEN HERE</div>
-                        <button 
-                            onClick={insertSampleToken}
-                            className="jwt-sample-button"
-                            aria-label="Insert sample token"
-                        >
-                            Sample
-                        </button>
+                        <div className="flex gap-2">
+                            <button 
+                                onClick={clearToken}
+                                className="jwt-sample-button"
+                                aria-label="Clear token"
+                            >
+                                Clear
+                            </button>
+                            <button 
+                                onClick={insertSampleToken}
+                                className="jwt-sample-button"
+                                aria-label="Insert sample token"
+                            >
+                                Sample
+                            </button>
+                        </div>
                     </div>
                     <div className="jwt-textarea-container">
                         <textarea
