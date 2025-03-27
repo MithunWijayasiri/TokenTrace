@@ -235,27 +235,28 @@ export default function JwtDebuggerPage() {
                         onMouseOver={(e) => e.currentTarget.style.opacity = '0.8'}
                         onMouseOut={(e) => e.currentTarget.style.opacity = '1'}
                     >
-                        <FingerPrintIcon className="w-7 h-7 inline-block mr-2" />
+                        <FingerPrintIcon className="w-9 h-9 inline-block mr-2" />
                         Token Trace
                     </h1>
                     <p className="jwt-brand-description">Decode and Verify JWT with ease</p>
                 </div>
-                <button
-                    onClick={toggleTheme}
-                    className="theme-toggle"
-                    aria-label="Toggle theme"
-                    title={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
-                >
-                    <MoonIcon className={`w-5 h-5 theme-icon ${theme === 'light' ? 'visible' : 'hidden'}`} />
-                    <SunIcon className={`w-5 h-5 theme-icon ${theme === 'dark' ? 'visible' : 'hidden'}`} />
-                </button>
-            </header>
-
-            {error && (
-                <div className="error-message">
-                    {error}
+                <div className="modern-theme-toggle-wrapper">
+                    <button
+                        onClick={toggleTheme}
+                        className="modern-theme-toggle"
+                        aria-label="Toggle theme"
+                        title={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
+                    >
+                        <span className="modern-theme-toggle-track">
+                            <SunIcon className="modern-theme-toggle-icon modern-theme-toggle-sun" />
+                            <MoonIcon className="modern-theme-toggle-icon modern-theme-toggle-moon" />
+                            <span 
+                                className={`modern-theme-toggle-thumb ${theme === 'dark' ? 'modern-theme-toggle-thumb-right' : ''}`}
+                            ></span>
+                        </span>
+                    </button>
                 </div>
-            )}
+            </header>
 
             <div className="jwt-grid">
                 {/* Encoded Section */}
@@ -318,6 +319,14 @@ export default function JwtDebuggerPage() {
                             )}
                         </div>
                     </div>
+                    {error && (
+                        <div className="error-message">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 mr-2 flex-shrink-0">
+                                <path fillRule="evenodd" d="M9.401 3.003c1.155-2 4.043-2 5.197 0l7.355 12.748c1.154 2-.29 4.5-2.599 4.5H4.645c-2.309 0-3.752-2.5-2.598-4.5L9.4 3.003zM12 8.25a.75.75 0 01.75.75v3.75a.75.75 0 01-1.5 0V9a.75.75 0 01.75-.75zm0 8.25a.75.75 0 100-1.5.75.75 0 000 1.5z" clipRule="evenodd" />
+                            </svg>
+                            {error}
+                        </div>
+                    )}
                 </div>
 
                 {/* Decoded Section */}
@@ -439,5 +448,4 @@ export default function JwtDebuggerPage() {
             {/* Explanation Section */}
             <JwtExplanation />
         </div>
-    );
-}
+    );}
