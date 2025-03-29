@@ -9,6 +9,7 @@ import {
 import { tryDecodeAndParse, verifySignature } from './utils/jwtUtils';
 import { SAMPLE_JWT } from './utils/constants';
 import JwtExplanation from './components/JwtExplanation';
+import Footer from './components/Footer';
 
 // --- Main Component ---
 export default function JwtDebuggerPage() {
@@ -447,5 +448,8 @@ export default function JwtDebuggerPage() {
 
             {/* Explanation Section */}
             <JwtExplanation />
+            
+            {/* Footer */}
+            <Footer />
         </div>
     );}
