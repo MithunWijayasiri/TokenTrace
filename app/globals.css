@@ -39,7 +39,7 @@ body {
 }
 
 .dark .jwt-page {
-  background-color: theme('colors.slate.900');
+  background-color: #000000;
   color: theme('colors.slate.100');
 }
 
@@ -130,15 +130,19 @@ body {
 }
 
 .theme-toggle {
-  display: none; /* Hide old toggle */
+  display: none;
+  /* Hide old toggle */
 }
 
 .theme-icon {
-  display: none; /* Hide old icons */
+  display: none;
+  /* Hide old icons */
 }
 
-.theme-icon.visible, .theme-icon.hidden {
-  display: none; /* Hide old icon states */
+.theme-icon.visible,
+.theme-icon.hidden {
+  display: none;
+  /* Hide old icon states */
 }
 
 /* Modern toggle styles */
@@ -263,15 +267,15 @@ body {
   .jwt-page {
     padding: 2rem;
   }
-  
+
   .jwt-header {
     margin-bottom: 2rem;
   }
-  
+
   .jwt-title {
     font-size: 1.875rem;
   }
-  
+
   .jwt-grid {
     grid-template-columns: 0.9fr 1.1fr;
     gap: 2rem;
@@ -437,7 +441,7 @@ body {
 }
 
 .dark .jwt-textarea-preview {
-  background-color: theme('colors.slate.900');
+  background-color: #0a0a0a;
   border-color: theme('colors.slate.700');
 }
 
@@ -481,7 +485,7 @@ body {
 }
 
 .dark .jwt-decoded-header-value {
-  color: theme('colors.indigo.400'); 
+  color: theme('colors.indigo.400');
   border-color: theme('colors.slate.700');
 }
 
@@ -503,7 +507,7 @@ body {
 }
 
 .dark .jwt-card {
-  background-color: theme('colors.slate.800');
+  background-color: #0a0a0a;
   border-color: theme('colors.slate.700');
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
@@ -631,7 +635,7 @@ body {
 }
 
 .dark .jwt-signature-input {
-  background-color: theme('colors.slate.900');
+  background-color: #0a0a0a;
   border-color: theme('colors.slate.700');
   color: theme('colors.slate.300');
 }
@@ -678,7 +682,7 @@ body {
 }
 
 .dark .jwt-verify-checkbox input[type="checkbox"] {
-  background-color: theme('colors.slate.800');
+  background-color: #0a0a0a;
   border-color: theme('colors.slate.600');
 }
 
@@ -713,7 +717,7 @@ body {
 }
 
 .dark .jwt-explanation {
-  background-color: theme('colors.slate.800');
+  background-color: #0a0a0a;
   border-color: theme('colors.slate.700');
   box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.5);
 }
@@ -817,13 +821,13 @@ body {
   padding: 1.25rem;
   position: relative;
   transition: transform 0.2s, box-shadow 0.2s;
-  border: 1px solid rgba(0,0,0,0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   overflow: hidden;
 }
 
 .jwt-structure-item:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 20px -10px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 20px -10px rgba(0, 0, 0, 0.1);
 }
 
 .dark .jwt-structure-item:hover {
